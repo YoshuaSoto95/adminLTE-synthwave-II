@@ -18,6 +18,7 @@
         
         <!-- Custom Styles -->
         <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/analytics.css">
     </head>
     <body class="hold-transition sidebar-mini">
         <div class="wrapper">
@@ -48,7 +49,7 @@
                                 <a href="profile.html" class="dropdown-item text-white">
                                     <i class="fas fa-user me-2"></i> Profile
                                 </a>
-                                <a href="config.html" class="dropdown-item text-white">
+                                <a href="#" class="dropdown-item text-white">
                                     <i class="fas fa-cog me-2"></i> Config
                                 </a>
                                 <div class="dropdown-divider"></div>
@@ -103,83 +104,66 @@
 
             <!-- Main Content -->
             <div class="content-wrapper p-2">
-                <!-- Content Header -->
-                <section class="content-header">
-                    <div class="container-fluid">
-                        <h1>Lead Metrics</h1>
-                    </div>
-                </section>
-
-                <!-- Main Content -->
                 <section class="content">
                     <div class="container-fluid">
                         <div class="row">
-                            <div class="col-md-12">
-                                <!-- Modificar la sección de Conversion Rate -->
+                            <div class="col-md-12 pt-2">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h3 class="card-title">Conversion Rate</h3>
+                                        <h3 class="card-title">Marketing Analytics</h3>
+                                        <div class="card-tools">
+                                            <select class="form-select cyber-select" id="timeRange">
+                                                <option value="7">Last 7 Days</option>
+                                                <option value="30">Last 30 Days</option>
+                                                <option value="365">Last Year</option>
+                                            </select>
+                                        </div>
                                     </div>
                                     <div class="card-body">
-                                        <canvas id="conversionChart" style="height: 250px;"></canvas>
+                                        <canvas id="combinedChart" style="height: 400px;"></canvas>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-12">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h3 class="card-title">Recent Leads</h3>
-                                    </div>
-                                    <div class="card-body">
-                                        <table class="table" id="leadsTable">
-                                            <thead>
-                                                <tr>
-                                                    <th>Full Name</th>
-                                                    <th>Email</th>
-                                                    <th>Type Plan</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>John Doe</td>
-                                                    <td>john@synthwave.com</td>
-                                                    <td><span class="badge bg-primary">Basic</span></td>
-                                                </tr>
-                                                <!-- Agregar más datos de ejemplo -->
-                                                <tr>
-                                                    <td>Jane Smith</td>
-                                                    <td>jane@cyber.com</td>
-                                                    <td><span class="badge bg-primary">Enterprice</span></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Mike Johnson</td>
-                                                    <td>mike@neon.com</td>
-                                                    <td><span class="badge bg-primary">Basic</span></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Sarah Connor</td>
-                                                    <td>sarah@tech.com</td>
-                                                    <td><span class="badge bg-primary">Enterprice</span></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Alex Mercer</td>
-                                                    <td>alex@synth.com</td>
-                                                    <td><span class="badge bg-primary">Pro</span></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Emma Davis</td>
-                                                    <td>emma@wave.com</td>
-                                                    <td><span class="badge bg-primary">Pro</span></td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                        <div class="text-end mt-2" id="paginationInfo"></div>
+                            
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h3 class="card-title">Conversion Rate</h3>
+                                        </div>
+                                        <div class="card-body">
+                                            <canvas id="conversionChart" style="height: 200px;"></canvas>
+                                            <div class="text-center mt-3">
+                                                <h2 class="neon-pink" id="conversionRate">0%</h2>
+                                                <p>Lead to Customer Conversion</p>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
+
+                                <div class="col-md-4">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h3 class="card-title">Quick Stats</h3>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="stat-item neon-cyan">
+                                                <i class="fas fa-users fa-2x"></i>
+                                                <h4>Total Visits</h4>
+                                                <span class="value" id="totalVisits">0</span>
+                                            </div>
+                                            <div class="stat-item neon-pink mt-3">
+                                                <i class="fas fa-chart-line fa-2x"></i>
+                                                <h4>Cost per Lead</h4>
+                                                <span class="value">$<span id="costPerLead">0</span></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>  
                             </div>
                         </div>
                     </div>
-                </section>
+                </div>
             </div>
         </div>
 
@@ -189,6 +173,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.1.0/js/adminlte.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="js/script.js"></script>
+    <script src="js/analytics.js"></script>
 
     <!-- Agregar al final del body antes de los scripts -->
     <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">

@@ -18,6 +18,7 @@
         
         <!-- Custom Styles -->
         <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/config.css">
     </head>
     <body class="hold-transition sidebar-mini">
         <div class="wrapper">
@@ -103,77 +104,101 @@
 
             <!-- Main Content -->
             <div class="content-wrapper p-2">
-                <!-- Content Header -->
                 <section class="content-header">
-                    <div class="container-fluid">
-                        <h1>Lead Metrics</h1>
-                    </div>
+                    <h1 class="neon-cyan">User Settings</h1>
                 </section>
-
-                <!-- Main Content -->
+            
                 <section class="content">
                     <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <!-- Modificar la sección de Conversion Rate -->
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h3 class="card-title">Conversion Rate</h3>
+                        <!-- Tarjeta 1: Preferencias Visuales -->
+                        <div class="card cyber-card">
+                            <div class="card-header">
+                                <h3 class="card-title"><i class="fas fa-palette me-2"></i>Interface Preferences</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="neon-pink">Theme Style</label>
+                                            <select class="form-select cyber-input">
+                                                <option>Synthwave Default</option>
+                                                <option>Cyberpunk Dark</option>
+                                                <option>Neon Matrix</option>
+                                            </select>
+                                        </div>
                                     </div>
-                                    <div class="card-body">
-                                        <canvas id="conversionChart" style="height: 250px;"></canvas>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="neon-pink">Neon Intensity</label>
+                                            <input type="range" class="form-range cyber-range" min="0" max="100">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="neon-pink">UI Density</label>
+                                            <div class="btn-group w-100">
+                                                <button class="btn btn-outline-cyan">Compact</button>
+                                                <button class="btn btn-outline-pink active">Normal</button>
+                                                <button class="btn btn-outline-cyan">Spacious</button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-12">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h3 class="card-title">Recent Leads</h3>
+                        </div>
+            
+                        <!-- Tarjeta 2: Configuración de Notificaciones -->
+                        <div class="card cyber-card mt-4">
+                            <div class="card-header">
+                                <h3 class="card-title"><i class="fas fa-bell me-2"></i>Notification Settings</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-check cyber-check">
+                                            <input class="form-check-input" type="checkbox">
+                                            <label class="form-check-label neon-cyan">Email Notifications</label>
+                                        </div>
+                                        <div class="form-check cyber-check mt-2">
+                                            <input class="form-check-input" type="checkbox" checked>
+                                            <label class="form-check-label neon-cyan">Push Notifications</label>
+                                        </div>
                                     </div>
-                                    <div class="card-body">
-                                        <table class="table" id="leadsTable">
-                                            <thead>
-                                                <tr>
-                                                    <th>Full Name</th>
-                                                    <th>Email</th>
-                                                    <th>Type Plan</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>John Doe</td>
-                                                    <td>john@synthwave.com</td>
-                                                    <td><span class="badge bg-primary">Basic</span></td>
-                                                </tr>
-                                                <!-- Agregar más datos de ejemplo -->
-                                                <tr>
-                                                    <td>Jane Smith</td>
-                                                    <td>jane@cyber.com</td>
-                                                    <td><span class="badge bg-primary">Enterprice</span></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Mike Johnson</td>
-                                                    <td>mike@neon.com</td>
-                                                    <td><span class="badge bg-primary">Basic</span></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Sarah Connor</td>
-                                                    <td>sarah@tech.com</td>
-                                                    <td><span class="badge bg-primary">Enterprice</span></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Alex Mercer</td>
-                                                    <td>alex@synth.com</td>
-                                                    <td><span class="badge bg-primary">Pro</span></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Emma Davis</td>
-                                                    <td>emma@wave.com</td>
-                                                    <td><span class="badge bg-primary">Pro</span></td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                        <div class="text-end mt-2" id="paginationInfo"></div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="neon-pink">Notification Sound</label>
+                                            <select class="form-select cyber-input">
+                                                <option>Synthwave Beep</option>
+                                                <option>8-bit Alert</option>
+                                                <option>Retro Ping</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+            
+                        <!-- Tarjeta 3: Configuración Avanzada -->
+                        <div class="card cyber-card mt-4">
+                            <div class="card-header">
+                                <h3 class="card-title"><i class="fas fa-cogs me-2"></i>Advanced Settings</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <button class="btn btn-outline-cyan w-100">
+                                            <i class="fas fa-key me-2"></i>API Keys
+                                        </button>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <button class="btn btn-outline-pink w-100">
+                                            <i class="fas fa-database me-2"></i>Export Data
+                                        </button>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <button class="btn btn-outline-danger w-100">
+                                            <i class="fas fa-skull me-2"></i>Danger Zone
+                                        </button>
                                     </div>
                                 </div>
                             </div>
